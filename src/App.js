@@ -1,4 +1,4 @@
-import { Tree, TreeButton } from 'lucide-react';
+import { Tree, TreeDeciduous } from 'lucide-react';
 import React, { useState } from 'react';
 
 // This function would need to be implemented to parse the scikit-learn tree
@@ -116,7 +116,7 @@ const DecisionTreeNavigator = () => {
         </div>
       )}
 
-      {currentNode.question ? (
+      {currentNode?.question ? (
         <div>
           <h2 className="text-lg font-semibold mb-2">{currentNode.question}</h2>
           <div className="space-y-2">
@@ -133,12 +133,12 @@ const DecisionTreeNavigator = () => {
         </div>
       ) : (
         <div className="text-center">
-          <p className="text-xl font-bold mb-4">Result: {path[path.length - 1].answer}</p>
+          <p className="text-xl font-bold mb-4">Result: {path[path.length - 1]?.answer}</p>
           <button
             onClick={resetTree}
             className="p-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors flex items-center mx-auto"
           >
-            <TreeButton className="mr-2" />
+            <TreeDeciduous className="mr-2" />
             Start Over
           </button>
         </div>
